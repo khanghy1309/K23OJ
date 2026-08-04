@@ -2,54 +2,89 @@
    This layer deliberately sits above the legacy theme bundles so the product can
    evolve without coupling the problem-solving experience to a side-by-side UI. */
 :root {
-    --k23-bg: #fffefd;
-    --k23-surface: #fffefd;
-    --k23-surface-raised: #fffefd;
-    --k23-border: #e7dac5;
-    --k23-text: #27231d;
-    --k23-muted: #6b6256;
-    --k23-accent: #7c8cff;
-    --k23-accent-bright: #5869dc;
+    --k23-bg: #ffffff;
+    --k23-surface: #ffffff;
+    --k23-surface-raised: #f7f7fa;
+    --k23-border: #cdcdd6;
+    --k23-border-strong: #a9abb8;
+    --k23-text: #18181b;
+    --k23-muted: #5b6070;
+    --k23-accent: #4f46e5;
+    --k23-accent-bright: #4338ca;
+    --k23-accent-press: #3730a3;
     --k23-success: #35d49a;
     --k23-warning: #ffc857;
     --k23-danger: #ff7185;
     --k23-radius: 16px;
-    --k23-page: #fffefd;
-    --k23-dock: #fffefd;
-    --k23-tint: rgba(88, 105, 220, .09);
-    --k23-row: #fffefd;
-    --k23-row-hover: #fff4df;
-    --k23-points: #8a5a00;
-    --k23-active-text: #000000;
-    --k23-selected-bg: #ffffff;
-    --k23-selected-text: #000000;
-    --k23-selected-hover-bg: #000000;
+    --k23-page: #ffffff;
+    --k23-dock: #ffffff;
+    --k23-tint: #eef0ff;
+    --k23-tint-strong: #e0e3ff;
+    --k23-row: #ffffff;
+    --k23-row-hover: #fafaff;
+    --k23-points: #7c3f00;
+    --k23-active-text: #18181b;
+    --k23-selected-bg: #4f46e5;
+    --k23-selected-text: #ffffff;
+    --k23-selected-hover-bg: #4338ca;
     --k23-selected-hover-text: #ffffff;
     --k23-shadow: rgba(26, 40, 76, .12);
-    --k23-menu: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+    --k23-menu: #1c1f33;
+
+    /* Flat button system — no gradients, borders carry the separation work. */
+    --k23-btn-radius: 10px;
+    --k23-focus-ring: rgba(79, 70, 229, .34);
+    --k23-btn-2-bg: #ffffff;
+    --k23-btn-2-bg-hover: #f5f5f8;
+    --k23-btn-2-bg-press: #eaeaf0;
+    --k23-btn-2-text: #2b2f3a;
+    --k23-btn-danger: #dc2626;
+    --k23-btn-danger-hover: #b91c1c;
+    --k23-btn-danger-press: #991b1b;
+    --k23-btn-danger-ring: rgba(220, 38, 38, .32);
+    --k23-btn-off-bg: #ececf1;
+    --k23-btn-off-border: #e2e2e9;
+    --k23-btn-off-text: #a4a7b3;
 }
 
 html[data-k23-theme="dark"] {
     --k23-bg: #0f172a;
-    --k23-surface: #161b22;
+    --k23-surface: #1c2536;
     --k23-surface-raised: #1e293b;
-    --k23-border: #334155;
+    --k23-border: #3a4a63;
+    --k23-border-strong: #546a8c;
     --k23-text: #f8fafc;
-    --k23-muted: #94a3b8;
+    --k23-muted: #9aa8bd;
     --k23-accent: #6366f1;
-    --k23-accent-bright: #818cf8;
+    --k23-accent-bright: #7c83f7;
+    --k23-accent-press: #4f46e5;
     --k23-page: #0f172a;
-    --k23-dock: #161b22;
-    --k23-tint: rgba(99, 102, 241, .14);
-    --k23-row: #161b22;
-    --k23-row-hover: #21262d;
+    --k23-dock: #1c2536;
+    --k23-tint: rgba(99, 102, 241, .18);
+    --k23-tint-strong: rgba(99, 102, 241, .3);
+    --k23-row: #1c2536;
+    --k23-row-hover: #26334a;
     --k23-points: #c7d2fe;
+    --k23-active-text: #f8fafc;
     --k23-selected-bg: #6366f1;
-    --k23-selected-text: #f8fafc;
-    --k23-selected-hover-bg: #818cf8;
-    --k23-selected-hover-text: #f8fafc;
+    --k23-selected-text: #ffffff;
+    --k23-selected-hover-bg: #7c83f7;
+    --k23-selected-hover-text: #ffffff;
     --k23-shadow: rgba(2, 6, 23, .16);
-    --k23-menu: #161b22;
+    --k23-menu: #151b2a;
+
+    --k23-focus-ring: rgba(129, 140, 248, .45);
+    --k23-btn-2-bg: #1c2536;
+    --k23-btn-2-bg-hover: #26334a;
+    --k23-btn-2-bg-press: #2f3e59;
+    --k23-btn-2-text: #e2e8f0;
+    --k23-btn-danger: #ef4444;
+    --k23-btn-danger-hover: #dc2626;
+    --k23-btn-danger-press: #b91c1c;
+    --k23-btn-danger-ring: rgba(239, 68, 68, .4);
+    --k23-btn-off-bg: #161f2e;
+    --k23-btn-off-border: #2b3a52;
+    --k23-btn-off-text: #5d6b80;
 }
 
 html {
@@ -119,26 +154,283 @@ footer { background: var(--k23-page); }
 }
 #judge-versions tr:first-child { position: static; }
 
-.button, input[type="submit"].button {
-    background: linear-gradient(135deg, var(--k23-accent), var(--k23-accent-bright));
-    border: 1px solid transparent;
-    border-radius: 10px;
-    color: var(--k23-selected-hover-text);
-    font-weight: 700;
+/* Flat, high-contrast button system. The legacy widgets layer paints every
+   button with a gradient, a lift-on-hover transform and a sheen pseudo-element;
+   all three are removed here so state is communicated by fill and border alone. */
+.button, button, input[type="submit"], input[type="button"], input[type="reset"] {
+    background: var(--k23-accent);
+    border: 1px solid var(--k23-accent);
+    border-radius: var(--k23-btn-radius);
+    color: #fff !important;
+    font-weight: 650;
+    font-size: .9375rem;
+    line-height: 1.2;
     letter-spacing: .01em;
+    padding: .625rem 1.125rem; /* 15px * 1.2 + 20 + 2 = 40px tall */
     box-shadow: none;
-    transition: background .18s ease, border-color .18s ease, filter .18s ease;
+    overflow: visible;
+    transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-.button:hover, input[type="submit"].button:hover {
-    color: var(--k23-selected-hover-text);
-    filter: brightness(1.08);
+.button::before, button::before,
+input[type="submit"]::before, input[type="button"]::before {
+    display: none;
+}
+.button:hover, button:hover, input[type="submit"]:hover,
+input[type="button"]:hover, input[type="reset"]:hover {
+    background: var(--k23-accent-bright);
     border-color: var(--k23-accent-bright);
+    color: #fff !important;
+    filter: none;
+    transform: none;
+    box-shadow: none;
+}
+.button:active, button:active, input[type="submit"]:active, input[type="button"]:active {
+    background: var(--k23-accent-press);
+    border-color: var(--k23-accent-press);
+    transform: translateY(1px);
+}
+.button:focus-visible, button:focus-visible,
+input[type="submit"]:focus-visible, input[type="button"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--k23-focus-ring);
 }
 
-.problem-primary-actions { display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; }
+/* Secondary — the neutral surface action (Random, Sửa bài). */
+.button-secondary, a.button-secondary, input[type="submit"].button-secondary {
+    background: var(--k23-btn-2-bg) !important;
+    border: 1px solid var(--k23-border);
+    color: var(--k23-btn-2-text) !important;
+}
+.button-secondary:hover, a.button-secondary:hover, input[type="submit"].button-secondary:hover {
+    background: var(--k23-btn-2-bg-hover) !important;
+    border-color: var(--k23-border-strong);
+    color: var(--k23-text) !important;
+}
+.button-secondary:active, a.button-secondary:active {
+    background: var(--k23-btn-2-bg-press) !important;
+    border-color: var(--k23-border-strong);
+}
+.button-secondary:focus-visible, a.button-secondary:focus-visible {
+    border-color: var(--k23-accent);
+    box-shadow: 0 0 0 3px var(--k23-focus-ring);
+}
+
+/* Danger — destructive actions (Xoá, Huỷ chấm). */
+.button-danger, a.button-danger, input[type="submit"].button-danger {
+    background: var(--k23-btn-danger) !important;
+    border: 1px solid var(--k23-btn-danger);
+    color: #fff !important;
+}
+.button-danger:hover, a.button-danger:hover, input[type="submit"].button-danger:hover {
+    background: var(--k23-btn-danger-hover) !important;
+    border-color: var(--k23-btn-danger-hover);
+}
+.button-danger:active, a.button-danger:active {
+    background: var(--k23-btn-danger-press) !important;
+    border-color: var(--k23-btn-danger-press);
+}
+.button-danger:focus-visible, a.button-danger:focus-visible {
+    box-shadow: 0 0 0 3px var(--k23-btn-danger-ring);
+}
+
+/* Ghost — tertiary actions that must not compete with the statement. */
+.button-ghost, a.button-ghost, input[type="submit"].button-ghost {
+    background: transparent !important;
+    border: 1px solid transparent;
+    color: var(--k23-accent) !important;
+    padding-left: .875rem;
+    padding-right: .875rem;
+}
+.button-ghost:hover, a.button-ghost:hover {
+    background: var(--k23-tint) !important;
+    border-color: transparent;
+    color: var(--k23-accent-bright) !important;
+}
+.button-ghost:active, a.button-ghost:active {
+    background: var(--k23-tint-strong) !important;
+    color: var(--k23-accent-press) !important;
+}
+.button-ghost:focus-visible, a.button-ghost:focus-visible {
+    box-shadow: 0 0 0 3px var(--k23-focus-ring);
+}
+
+/* Sizes. md (40px) is the default above. */
+.button-sm, a.button-sm, .inline-button {
+    font-size: .8125rem;
+    border-radius: 8px;
+    padding: .375rem .75rem;
+}
+.button-lg, a.button-lg {
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: .875rem 1.5rem;
+}
+
+/* Disabled and loading share one muted resting state. */
+.button.disabled, .button[disabled], button[disabled], button:disabled,
+input[type="submit"][disabled], input[type="submit"]:disabled,
+input[type="button"][disabled], .button-secondary.disabled, .button-danger.disabled {
+    background: var(--k23-btn-off-bg) !important;
+    border-color: var(--k23-btn-off-border) !important;
+    color: var(--k23-btn-off-text) !important;
+    cursor: not-allowed;
+    opacity: 1;
+    filter: none;
+    transform: none;
+    box-shadow: none;
+}
+.button-ghost.disabled, .button-ghost[disabled] {
+    background: transparent !important;
+    border-color: transparent !important;
+}
+.button.loading, button.loading {
+    cursor: progress;
+    opacity: .85;
+}
+.button.loading::after, button.loading::after {
+    content: '';
+    display: inline-block;
+    vertical-align: -2px;
+    margin-left: .5rem;
+    width: 13px;
+    height: 13px;
+    border: 2px solid rgba(255, 255, 255, .85);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: k23spin .7s linear infinite;
+}
+@keyframes k23spin { to { transform: rotate(360deg); } }
+
+/* Action dock: one primary call to action, then every secondary destination as a
+   full-width button of the same width so the column reads as a single stack. */
+.problem-primary-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .5rem;
+}
 .problem-primary-actions > div:not(.submissions-left) { padding: 0; background: none; }
 .problem-primary-actions > hr { display: none; }
+.problem-primary-actions > .button.full {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: .875rem 1.5rem;
+    margin-bottom: .25rem;
+}
+.problem-primary-actions > div:not(.submissions-left) > a {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background: var(--k23-btn-2-bg);
+    border: 1px solid var(--k23-border);
+    border-radius: var(--k23-btn-radius);
+    color: var(--k23-btn-2-text);
+    font-size: .875rem;
+    font-weight: 650;
+    line-height: 1.2;
+    padding: .5625rem 1rem; /* 38px tall */
+    transition: background .18s ease, border-color .18s ease;
+}
+.problem-primary-actions > div:not(.submissions-left) > a:hover {
+    background: var(--k23-btn-2-bg-hover);
+    border-color: var(--k23-border-strong);
+    color: var(--k23-text);
+}
+/* The editorial link is a read-more, not an action — keep it ghost. */
+.problem-primary-actions > div.editorial-action > a {
+    background: transparent;
+    border-color: transparent;
+    color: var(--k23-accent);
+}
+.problem-primary-actions > div.editorial-action > a:hover {
+    background: var(--k23-tint);
+    border-color: transparent;
+    color: var(--k23-accent-bright);
+}
+.problem-primary-actions .submissions-left {
+    text-align: center;
+    font-size: .8125rem;
+    color: var(--k23-muted);
+}
+
+/* Problem facts read as a label → value ledger rather than an icon list. */
+#content-right .info-float > hr,
+.problem-primary-actions + hr {
+    border: 0;
+    border-top: 1px solid var(--k23-border);
+    margin: 1rem 0;
+    padding: 0;
+}
 .problem-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .55rem 1.25rem; }
+#content-right .problem-facts { grid-template-columns: 1fr; gap: .7rem; }
+#content-right .problem-facts .problem-info-entry {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: .84375rem;
+    color: var(--k23-muted);
+}
+#content-right .problem-facts .problem-info-entry > .fa { display: none; }
+#content-right .problem-facts .pi-name { font-weight: 400; }
+#content-right .problem-facts .pi-value {
+    color: var(--k23-text);
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Recent submissions in the dock: compact activity cards, verdict as a pill. */
+.dock-recent-title {
+    font-size: .65625rem;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--k23-muted);
+    margin-bottom: .6rem;
+}
+.dock-recent-list { display: grid; gap: .5rem; }
+.dock-recent-item {
+    display: flex;
+    align-items: center;
+    gap: .625rem;
+    background: var(--k23-row);
+    border: 1px solid var(--k23-border);
+    border-radius: 12px;
+    padding: .625rem .75rem;
+    text-decoration: none;
+    color: var(--k23-text);
+    transition: background .18s ease, border-color .18s ease;
+}
+.dock-recent-item:hover { background: var(--k23-row-hover); border-color: var(--k23-accent); }
+.dock-recent-item .status {
+    border-radius: 999px;
+    padding: .25rem .5625rem;
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    background: rgba(145, 160, 189, .18);
+    color: var(--k23-text);
+}
+.dock-recent-item .status.AC { background: var(--k23-success); color: #06291d; }
+.dock-recent-item .status._AC { background: #f59e0b; color: #3d2600; }
+.dock-recent-item .status.WA { background: var(--k23-danger); color: #35050d; }
+.dock-recent-item .status.TLE, .dock-recent-item .status.SC { background: #9ca3af; color: #1f2937; }
+.dock-recent-item .status.MLE, .dock-recent-item .status.OLE, .dock-recent-item .status.IR,
+.dock-recent-item .status.RTE, .dock-recent-item .status.IE, .dock-recent-item .status.AB { background: #f59e0b; color: #3d2600; }
+.dock-recent-item .status.CE { background: #4b5563; color: #f8fafc; }
+.dock-recent-item .dock-recent-score { font-size: .8125rem; font-weight: 600; }
+.dock-recent-item .dock-recent-time {
+    margin-left: auto;
+    font-size: .75rem;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    color: var(--k23-muted);
+}
 .problem-facts .problem-lang-limits, .problem-facts #problem-types, .problem-facts #allowed-langs,
 .problem-facts #available-judges { grid-column: 1 / -1; }
 .problem-focus-layout .content-description.screen {
@@ -151,6 +443,17 @@ footer { background: var(--k23-page); }
 .problem-focus-layout .content-description.screen h3 { margin-top: 1.6rem; }
 .problem-title { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
 .problem-title .spacer { flex: 1; }
+/* "View as PDF" is a tertiary action next to the title — ghost, not a link. */
+.problem-title a.view-pdf {
+    padding: .5rem .75rem;
+    border-radius: var(--k23-btn-radius);
+    color: var(--k23-accent);
+    font-size: .875rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background .18s ease, color .18s ease;
+}
+.problem-title a.view-pdf:hover { background: var(--k23-tint); color: var(--k23-accent-bright); }
 
 /* Discovery view: the legacy data table becomes a scan-friendly problem deck.
    The markup remains a table so existing sort links and live solve-state updates
@@ -169,7 +472,10 @@ footer { background: var(--k23-page); }
     background: var(--k23-surface) !important;
     outline: 1px solid var(--k23-border); border-radius: 13px; overflow: hidden;
 }
-#problem-table tbody tr:hover { outline-color: var(--k23-accent); }
+#problem-table tbody tr:hover {
+    outline-color: var(--k23-accent);
+    background: var(--k23-row-hover) !important;
+}
 #problem-table td { border: 0; padding: 1rem .75rem; }
 #problem-table td.problem-code { color: var(--k23-accent-bright); font-size: .78rem; font-weight: 750; }
 #problem-table td.problem-name { font-size: 1.04rem; font-weight: 720; }
@@ -199,6 +505,22 @@ input[type="button"].active:hover, input[type="button"].selected:hover {
     color: var(--k23-selected-hover-text);
     background: var(--k23-selected-hover-bg);
     filter: none;
+}
+/* style.css marks the active tab with a 3px emerald top border, which both
+   outranks the pill rule above and reintroduces the old accent. Beat it on
+   specificity and drop the border so every tab is the same height. */
+.tabs ul li.tab a, .tabs ul li.tab span {
+    border-top-width: 0 !important;
+    border-radius: 8px;
+}
+.tabs ul li.tab.active a, .tabs ul li.tab.active span {
+    background: var(--k23-selected-bg);
+    color: var(--k23-selected-text);
+    border-top-color: transparent !important;
+}
+.tabs ul li.tab.active a:hover, .tabs ul li.tab.active span:hover {
+    background: var(--k23-selected-hover-bg);
+    color: var(--k23-selected-hover-text);
 }
 
 /* Submission history: each row reads as a compact activity card and verdicts
@@ -230,16 +552,43 @@ input[type="button"].active:hover, input[type="button"].selected:hover {
 .submission-row .sub-result.CE .status { color: #f8fafc; background: #4b5563; }
 .submission-row .score { color: var(--k23-text) !important; font-weight: 750; }
 
-/* Keep navigation in the same slate hierarchy as the page instead of using a
-   separate, high-contrast gradient. Borders do the separation work. */
+/* Keep navigation in one flat surface instead of a separate purple gradient that
+   belongs to no theme scale, and make the active-tab accent the same indigo as
+   the buttons rather than the legacy emerald. Applies to both themes. */
+html #nav-background,
+html #nav-container,
+html nav,
+html #navigation,
+html #nav-list {
+    background: var(--k23-menu);
+    box-shadow: none;
+}
+html nav {
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+html nav ul li a.active,
+html nav ul li button.active {
+    border-bottom: 3px solid var(--k23-accent);
+}
+html nav ul li ul {
+    background: var(--k23-menu);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, .12);
+    box-shadow: 0 8px 24px var(--k23-shadow);
+}
+html nav ul li ul li a.active,
+html nav ul li ul li a:hover,
+html nav ul li ul li button:hover {
+    border-left-color: var(--k23-accent);
+}
+
 html[data-k23-theme="dark"] #nav-background,
 html[data-k23-theme="dark"] #nav-container,
 html[data-k23-theme="dark"] nav,
 html[data-k23-theme="dark"] #navigation,
 html[data-k23-theme="dark"] #nav-list {
-    background: var(--k23-menu);
     border-color: var(--k23-border);
-    box-shadow: none;
 }
 html[data-k23-theme="dark"] nav {
     border-bottom: 1px solid var(--k23-border);
@@ -301,6 +650,21 @@ html[data-k23-theme="dark"] .source-wrap {
     background: var(--k23-surface-raised);
     border-color: var(--k23-border);
 }
+/* Inputs sit on the same border/radius scale as the buttons in both themes. */
+input[type="text"], input[type="password"], input[type="email"],
+input[type="number"], input[type="url"], input[type="search"], textarea, select {
+    border: 1px solid var(--k23-border);
+    border-radius: var(--k23-btn-radius);
+    box-shadow: none;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+input[type="number"]:focus, input[type="url"]:focus, input[type="search"]:focus,
+textarea:focus, select:focus {
+    border-color: var(--k23-accent);
+    box-shadow: 0 0 0 3px var(--k23-focus-ring);
+}
+input[type="checkbox"], input[type="radio"] { accent-color: var(--k23-accent); }
+
 html[data-k23-theme="dark"] input[type="text"],
 html[data-k23-theme="dark"] input[type="password"],
 html[data-k23-theme="dark"] input[type="email"],
