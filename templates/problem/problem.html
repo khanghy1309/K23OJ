@@ -193,7 +193,9 @@
     {% endif %}
     {% if (editorial and editorial.is_accessible_by(request.user)) and not request.in_contest %}
         <hr>
-        <div><a href="{{ url('problem_editorial', problem.code) }}">{{ _('Read editorial') }}</a></div>
+        <div class="editorial-action">
+            <a href="{{ url('problem_editorial', problem.code) }}">{{ _('Read editorial') }}</a>
+        </div>
     {% endif %}
     {% if can_edit_problem %}
         <hr>
@@ -383,6 +385,24 @@
         </div>
     {% endif %}
     </div>
+
+    {% if recent_submissions %}
+        <hr>
+        <div class="dock-recent">
+            <div class="dock-recent-title">{{ _('Recent submissions') }}</div>
+            <div class="dock-recent-list">
+                {% for submission in recent_submissions %}
+                    <a class="dock-recent-item" href="{{ url('submission_status', submission.id) }}">
+                        <span class="status {{ submission.result_class }}">{{ submission.short_status }}</span>
+                        <span class="dock-recent-score">{{ submission.points|floatformat(0) }}</span>
+                        <span class="dock-recent-time">
+                            {%- if submission.time is not none %}{{ submission.time|floatformat(2) }}s{% else %}—{% endif -%}
+                        </span>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
 
 {% block description %}

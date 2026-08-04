@@ -232,6 +232,14 @@ class ProblemDetail(ProblemMixin, SolvedProblemMixin, CommentedDetailView):
         contest_problem = self.contest_problem
         context['has_submissions'] = authed and Submission.objects.filter(user=user.profile,
                                                                           problem=self.object).exists()
+        # The action dock shows the author's own last few attempts so the page answers
+        # "where am I on this problem" without a round trip to the submission list.
+        # Contest mode is excluded: what a participant may see there is scoped by the
+        # contest's own visibility rules, which this shortcut does not evaluate.
+        if authed and not self.request.in_contest:
+            context['recent_submissions'] = Submission.objects.filter(
+                user=user.profile, problem=self.object,
+            ).order_by('-id')[:5]
         context['contest_problem'] = contest_problem
         if contest_problem:
             clarifications = self.object.clarifications
